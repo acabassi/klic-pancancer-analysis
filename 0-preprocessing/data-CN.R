@@ -76,7 +76,9 @@ apply(SCNA, 2, var)
 min(SCNA)
 max(SCNA)
 
-SCNAscaled <- scale(SCNA, center = TRUE, scale = TRUE) # NO
+# Scaling is not mentioned in the paper by Hoadley et al. but, since it improves
+# the correspondence between our clusterings, we do it here.
+SCNAscaled <- scale(SCNA, center = TRUE, scale = TRUE) 
 
 sum(1 - rownames(SCNA) %in% rownames(clusters)) # Now the row names are the same
 
